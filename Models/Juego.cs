@@ -70,9 +70,9 @@ static private string Username;
     
     foreach (Respuesta respuesta in ListaRespuestas)
     {
-        if (respuesta.Id == idRespuesta)
+        if (respuesta.IdRespuesta == idRespuesta)
         {
-            respuestaCorrecta = respuesta.EsCorrecta; 
+            respuestaCorrecta = respuesta.Correcta; 
             break;
         }
     }
@@ -100,3 +100,4 @@ static private string Username;
 }
   
 }
+

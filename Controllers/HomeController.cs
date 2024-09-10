@@ -46,7 +46,7 @@ public class JuegoController : Controller
         public IActionResult VerificarRespuesta(int idPregunta, int idRespuesta)
         {
             bool esCorrecta = Juego.VerificarRespuesta(idRespuesta);
-            ViewBag.EsCorrecta = Juego.;
+            ViewBag.EsCorrecta = false;
         
             
 
