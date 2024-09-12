@@ -1,32 +1,22 @@
-@model ConfigurarJuegoViewModel
-
 @{
-    ViewBag.Title = "Configurar Juego";
+    ViewBag.Title = "Juego";
 }
 
-<h2>Configurar Juego</h2>
+<h2>Pregunta @ViewBag.NumeroPregunta</h2>
+<p>Usuario: @ViewBag.Username</p>
+<p>Puntaje: @ViewBag.PuntajeActual</p>
 
-<form asp-action="Comenzar" method="get">
-    <label for="username">Nombre de usuario:</label>
-    <input type="text" id="username" name="username" value="@Model.Username" required />
+<div>
+    <p><strong>@ViewBag.Pregunta.Enunciado</strong></p>
 
-    <label for="dificultad">Dificultad:</label>
-    <select id="dificultad" name="dificultad" required>
-        <option value="-1">Todas</option>
-        @foreach (var item in Model.Dificultades)
-        {
-            <option value="@item.Id">@item.Nivel</option>
+    <form asp-action="VerificarRespuesta" method="post">
+        @foreach (var respuesta in ViewBag.Respuestas) {
+            <div>
+                <input type="radio" id="respuesta-@respuesta.Id" name="idRespuesta" value="@respuesta.Id" required />
+                <label for="respuesta-@respuesta.Id">@respuesta.Texto</label>
+            </div>
         }
-    </select>
-
-    <label for="categoria">Categoría:</label>
-    <select id="categoria" name="categoria" required>
-        <option value="-1">Todas</option>
-        @foreach (var item in Model.Categorias)
-        {
-            <option value="@item.Id">@item.Nombre</option>
-        }
-    </select>
-
-    <button type="submit" class="btn btn-primary">Jugar</button>
-</form>
+        <input type="hidden" name="idPregunta" value="@ViewBag.Pregunta.Id" />
+        <button type="submit" class="btn btn-primary">Responder</button>
+    </form>
+</div>
