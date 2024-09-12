@@ -4,7 +4,7 @@ using TP07.Models;
 
 namespace TP07.Controllers;
 
-public class JuegoController : Controller
+public class HomeController : Controller
     {
        
         public IActionResult Index()

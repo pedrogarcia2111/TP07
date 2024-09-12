@@ -34,16 +34,13 @@ static private string Username;
 
     public static void CargarPartida(string username, int dificultad, int categoria)
         {
-            InicializarJuego();
+            InicializarJuego(username);
 
             Username = username; 
 
             ListaPreguntas = BD.ObtenerPreguntas(dificultad, categoria);
 
-            if (ListaPreguntas.Count > 0)
-            {
-                PreguntaActual = ListaPreguntas[0];
-            }
+           
         }
     public static Pregunta ObtenerProximaPregunta()
         {

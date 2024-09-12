@@ -1,0 +1,32 @@
+@model ConfigurarJuegoViewModel
+
+@{
+    ViewBag.Title = "Configurar Juego";
+}
+
+<h2>Configurar Juego</h2>
+
+<form asp-action="Comenzar" method="get">
+    <label for="username">Nombre de usuario:</label>
+    <input type="text" id="username" name="username" value="@Model.Username" required />
+
+    <label for="dificultad">Dificultad:</label>
+    <select id="dificultad" name="dificultad" required>
+        <option value="-1">Todas</option>
+        @foreach (var item in Model.Dificultades)
+        {
+            <option value="@item.Id">@item.Nivel</option>
+        }
+    </select>
+
+    <label for="categoria">Categoría:</label>
+    <select id="categoria" name="categoria" required>
+        <option value="-1">Todas</option>
+        @foreach (var item in Model.Categorias)
+        {
+            <option value="@item.Id">@item.Nombre</option>
+        }
+    </select>
+
+    <button type="submit" class="btn btn-primary">Jugar</button>
+</form>
