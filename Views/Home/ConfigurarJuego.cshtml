@@ -1,32 +1,42 @@
-@model ConfigurarJuegoViewModel
-
 @{
     ViewBag.Title = "Configurar Juego";
 }
 
-<h2>Configurar Juego</h2>
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Configurar Juego</h2>
 
-<form asp-action="Comenzar" method="get">
-    <label for="username">Nombre de usuario:</label>
-    <input type="text" id="username" name="username" value="@Model.Username" required />
+    <div class="card shadow-lg p-4 mb-5 bg-body rounded">
+        <form method="get" asp-action="Comenzar">
+            <div class="mb-4">
+                <label for="username" class="form-label fw-bold">Nombre de Usuario</label>
+                <input type="text" class="form-control" id="username" name="username" placeholder="Ingrese su nombre de usuario" required>
+            </div>
 
-    <label for="dificultad">Dificultad:</label>
-    <select id="dificultad" name="dificultad" required>
-        <option value="-1">Todas</option>
-        @foreach (var item in Model.Dificultades)
-        {
-            <option value="@item.Id">@item.Nivel</option>
-        }
-    </select>
+            <div class="mb-4">
+                <label for="categoria" class="form-label fw-bold">Categoría</label>
+                <select class="form-select" id="categoria" name="categoria" required>
+                    <option value="-1">Todas las categorías</option>
+                    @foreach (Categoria categoria in (List<Categoria>)ViewBag.Categorias)
+                    {
+                        <option value="@categoria.IdCategoria">@categoria.Nombre</option>
+                    }
+                </select>
+            </div>
 
-    <label for="categoria">Categoría:</label>
-    <select id="categoria" name="categoria" required>
-        <option value="-1">Todas</option>
-        @foreach (var item in Model.Categorias)
-        {
-            <option value="@item.Id">@item.Nombre</option>
-        }
-    </select>
+            <div class="mb-4">
+                <label for="dificultad" class="form-label fw-bold">Dificultad</label>
+                <select class="form-select" id="dificultad" name="dificultad" required>
+                    <option value="-1">Todas las dificultades</option>
+                    @foreach (Dificultad dificultad in (List<Dificultad>)ViewBag.Dificultades)
+                    {
+                        <option value="@dificultad.IdDificultad">@dificultad.Nombre</option>
+                    }
+                </select>
+            </div>
 
-    <button type="submit" class="btn btn-primary">Jugar</button>
-</form>
+            <div class="d-grid">
+                    <a class="btn btn-primary" href='@Url.Action("Juego" , "Home")'>Comenzar Juego</a>
+            </div>
+        </form>
+    </div>
+</div>

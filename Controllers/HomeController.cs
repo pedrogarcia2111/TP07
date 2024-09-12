@@ -17,7 +17,7 @@ public class HomeController : Controller
         {
             ViewBag.Categorias = Juego.ObtenerCategorias();
             ViewBag.Dificultades = Juego.ObtenerDificultades();
-            return View();
+            return View("ConfigurarJuego");
         }
 
        
