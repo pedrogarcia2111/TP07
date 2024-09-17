@@ -5,18 +5,15 @@
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <!-- Información del jugador y puntaje actual -->
             <div class="text-center mb-4">
                 <h3>¡Hola, @ViewBag.Username!</h3>
                 <p>Puntaje actual: <strong>@ViewBag.PuntajeActual</strong></p>
             </div>
 
-            <!-- Pregunta y número de pregunta -->
             <div class="card shadow-sm p-4 mb-4">
                 <h5 class="text-center">Pregunta <strong>@ViewBag.NumeroPreguntaActual</strong></h5>
                 <h4 class="text-center">@ViewBag.PreguntaActual.Enunciado</h4>
 
-                <!-- Mostrar imagen si existe -->
                 @if (!string.IsNullOrEmpty(ViewBag.PreguntaActual.Foto))
                 {
                     <div class="text-center mb-3">
@@ -25,7 +22,6 @@
                 }
             </div>
 
-            <!-- Formulario para seleccionar la respuesta -->
             <form method="post" asp-action="VerificarRespuesta">
                 <div class="row">
                     @foreach (Respuesta respuesta in (List<Respuesta>)ViewBag.Respuestas)
