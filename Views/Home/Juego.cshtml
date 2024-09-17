@@ -6,18 +6,18 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="text-center mb-4">
-                <h3>¡Hola, @ViewBag.Username!</h3>
+                <h3>¡Hola!</h3>
                 <p>Puntaje actual: <strong>@ViewBag.PuntajeActual</strong></p>
             </div>
 
             <div class="card shadow-sm p-4 mb-4">
                 <h5 class="text-center">Pregunta <strong>@ViewBag.NumeroPreguntaActual</strong></h5>
-                <h4 class="text-center">@ViewBag.PreguntaActual.Enunciado</h4>
+                <h4 class="text-center">@ViewBag.Pregunta.Enunciado</h4>
 
-                @if (!string.IsNullOrEmpty(ViewBag.PreguntaActual.Foto))
+                @if (!string.IsNullOrEmpty(ViewBag.Pregunta.Foto))
                 {
                     <div class="text-center mb-3">
-                        <img src="@ViewBag.PreguntaActual.Foto" class="img-fluid rounded" alt="Imagen de la pregunta" />
+                        <img src="@ViewBag.Pregunta.Foto" class="img-fluid rounded" alt="Imagen de la pregunta" />
                     </div>
                 }
             </div>
@@ -33,7 +33,7 @@
                                 {
                                     <img src="@respuesta.Foto" class="img-fluid mb-2 rounded" alt="Imagen de respuesta" />
                                 }
-                                <div>@respuesta.Opcion</div> <!-- Usando 'Opcion' en lugar de 'Texto' -->
+                                <div>@respuesta.Opcion</div>
                             </button>
                         </div>
                     }

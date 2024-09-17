@@ -6,7 +6,7 @@
     <h2 class="text-center mb-4">Configurar Juego</h2>
 
     <div class="card shadow-lg p-4 mb-5 bg-body rounded">
-        <form method="get" asp-action="Comenzar">
+        <form method="get" action='@Url.ActionLink("Comenzar" , "Home")'>
             <div class="mb-4">
                 <label for="username" class="form-label fw-bold">Nombre de Usuario</label>
                 <input type="text" class="form-control" id="username" name="username" placeholder="Ingrese su nombre de usuario" required>
@@ -34,9 +34,7 @@
                 </select>
             </div>
 
-            <div class="d-grid">
-            <a class="btn btn-primary" href='@Url.Action("Juego" , "Home")'>Jugar</a>
-            </div>
+            <input type="submit" value="Jugar" />
         </form>
     </div>
 </div>

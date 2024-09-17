@@ -70,7 +70,7 @@ static private string Username;
         if (respuesta.IdRespuesta == idRespuesta)
         {
             respuestaCorrecta = respuesta.Correcta; 
-            break;
+            
         }
     }
 

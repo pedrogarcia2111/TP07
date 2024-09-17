@@ -38,7 +38,7 @@ public class HomeController : Controller
 
             ViewBag.Pregunta = preguntaActual;
             ViewBag.Respuestas = Juego.ObtenerProximasRespuestas(preguntaActual.IdPregunta);
-            return View();
+            return View("Juego");
         }
 
        
