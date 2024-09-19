@@ -11,29 +11,19 @@
             </div>
 
             <div class="card shadow-sm p-4 mb-4">
-                <h5 class="text-center">Pregunta <strong>@ViewBag.NumeroPreguntaActual</strong></h5>
                 <h4 class="text-center">@ViewBag.Pregunta.Enunciado</h4>
 
-                @if (!string.IsNullOrEmpty(ViewBag.Pregunta.Foto))
-                {
-                    <div class="text-center mb-3">
-                        <img src="@ViewBag.Pregunta.Foto" class="img-fluid rounded" alt="Imagen de la pregunta" />
-                    </div>
-                }
+               
             </div>
 
             <form method="post" asp-action="VerificarRespuesta">
                 <div class="row">
-                    @foreach (Respuesta respuesta in (List<Respuesta>)ViewBag.Respuestas)
+                    @foreach (Respuesta respuesta in ViewBag.Respuestas)
                     {
                         <div class="col-md-6 mb-3">
                             <button type="submit" name="idRespuesta" value="@respuesta.IdRespuesta" class="btn btn-outline-primary w-100">
-                                <!-- Mostrar imagen de la respuesta si existe -->
-                                @if (!string.IsNullOrEmpty(respuesta.Foto))
-                                {
-                                    <img src="@respuesta.Foto" class="img-fluid mb-2 rounded" alt="Imagen de respuesta" />
-                                }
-                                <div>@respuesta.Opcion</div>
+                                
+                                <div>@respuesta.Contenido</div>
                             </button>
                         </div>
                     }

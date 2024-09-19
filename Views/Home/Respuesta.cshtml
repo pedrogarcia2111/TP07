@@ -5,17 +5,19 @@
 <div class="container mt-5">
     <div class="text-center">
         @if (ViewBag.EsCorrecta)
-        {
-            <h1 class="display-3 text-success fw-bold">¡Correcto! 🎉</h1>
-        }
-        else
-        {
-            <h1 class="display-3 text-danger fw-bold">¡Incorrecto! ❌</h1>
-            <h4 class="text-muted">La respuesta correcta era: <strong>@ViewBag.RespuestaCorrecta</strong></h4>
-        }
+{
+    <div class="alert alert-success">¡Correcto! 🎉</div>
+}
+else
+{
+    <div class="alert alert-danger">¡Incorrecto! ❌</div>
+}
+
     </div>
 
     <div class="text-center mt-5">
-        <a href='@Url.Action("Jugar", "Juego")' class="btn btn-lg btn-primary">Siguiente Pregunta</a>
+        <a href='@Url.Action("Jugar", "Home")' class="btn btn-lg btn-primary">Siguiente Pregunta</a>
     </div>
 </div>
+
+

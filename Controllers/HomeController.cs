@@ -33,25 +33,28 @@ public class HomeController : Controller
             Pregunta preguntaActual = Juego.ObtenerProximaPregunta();
             if (preguntaActual == null)
             {
+                ViewBag.PuntajeFinal = Juego.ObtenerPuntaje();
+                ViewBag.username = Juego.ObtenerNombre();
                 return View("Fin");
             }
 
             ViewBag.Pregunta = preguntaActual;
             ViewBag.Respuestas = Juego.ObtenerProximasRespuestas(preguntaActual.IdPregunta);
+            ViewBag.PuntajeActual = Juego.ObtenerPuntaje();
             return View("Juego");
         }
 
        
-        [HttpPost]
-        public IActionResult VerificarRespuesta(int idPregunta, int idRespuesta)
-        {
-            bool esCorrecta = Juego.VerificarRespuesta(idRespuesta);
-            ViewBag.EsCorrecta = false;
-        
-            
+       [HttpPost]
+public IActionResult VerificarRespuesta(int idPregunta, int idRespuesta)
+{
+    bool esCorrecta = Juego.VerificarRespuesta(idRespuesta);
+    
+    ViewBag.EsCorrecta = esCorrecta;
 
-            return View("Respuesta");
-        }
+    return View("Respuesta");
+}
+
     }
 
 

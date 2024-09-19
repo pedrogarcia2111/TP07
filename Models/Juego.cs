@@ -56,7 +56,8 @@ static private string Username;
         }
         public static List<Respuesta> ObtenerProximasRespuestas(int idPregunta)
         {
-            return BD.ObtenerRespuestas(idPregunta);
+            ListaRespuestas = BD.ObtenerRespuestas(idPregunta);
+            return ListaRespuestas;
         }
         
         public static bool VerificarRespuesta(int idRespuesta)
@@ -95,6 +96,14 @@ static private string Username;
 
     return respuestaCorrecta;
 }
+  public static int ObtenerPuntaje()
+  {
+    return PuntajeActual;
+  }
+  public static string ObtenerNombre()
+  {
+    return Username;
   
+  }
 }
 
